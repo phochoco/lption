@@ -7,7 +7,8 @@ export interface ZoneStandard {
   id: string;
   name: string;
   description: string;
-  maxIlluminance: number; // lx (주거지 연직면 최대값)
+  maxIlluminance: number; // lx (주거지 창문 연직면 최대값)
+  maxLuminance: number; // cd/m² (광고조명 발광표면 최대값)
   examples: string[];
 }
 
@@ -30,6 +31,7 @@ export const ZONE_STANDARDS: ZoneStandard[] = [
     name: '제1종',
     description: '자연환경 보전지역, 녹지지역',
     maxIlluminance: 10,
+    maxLuminance: 50,
     examples: ['국립공원', '생태보전지역', '자연녹지'],
   },
   {
@@ -37,6 +39,7 @@ export const ZONE_STANDARDS: ZoneStandard[] = [
     name: '제2종',
     description: '농림지역, 자연환경 보호 필요 지역',
     maxIlluminance: 10,
+    maxLuminance: 50,
     examples: ['농촌', '산림', '어촌'],
   },
   {
@@ -44,6 +47,7 @@ export const ZONE_STANDARDS: ZoneStandard[] = [
     name: '제3종',
     description: '주거지역',
     maxIlluminance: 25,
+    maxLuminance: 400,
     examples: ['아파트 단지', '주택가', '학교 주변'],
   },
   {
@@ -51,6 +55,7 @@ export const ZONE_STANDARDS: ZoneStandard[] = [
     name: '제4종',
     description: '상업·공업지역',
     maxIlluminance: 25,
+    maxLuminance: 800,
     examples: ['상업지구', '공업단지', '역세권'],
   },
 ];

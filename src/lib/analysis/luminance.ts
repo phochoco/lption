@@ -39,8 +39,12 @@ export interface ROIResult {
 }
 
 /* ── 휘도 계산 ── */
+// 스마트폰 픽셀값(0~255)을 대략적인 cd/m² 스케일로 매핑하기 위한 임시 보정값
+// 실제 측정 시 EXIF의 ISO, 셔터스피드, 조리개값을 이용한 광도 교정(Photometric Calibration)이 필요합니다.
+const LUMINANCE_CALIBRATION_FACTOR = 3.5; // 최대 255픽셀 * 3.5 = 892.5 cd/m²
+
 export function calculateLuminance(r: number, g: number, b: number): number {
-  // ITU-R BT.709 표준
+  // ITU-R BT.709 표준 (0~255)
   return 0.2126 * r + 0.7152 * g + 0.0722 * b;
 }
 
@@ -104,10 +108,10 @@ export function analyzeImage(imageData: ImageData): AnalysisResult {
   const processingTimeMs = performance.now() - startTime;
   
   return {
-    avgLuminance: Math.round(avg * 100) / 100,
-    maxLuminance: Math.round(max * 100) / 100,
-    minLuminance: Math.round(min * 100) / 100,
-    luminanceStd: Math.round(std * 100) / 100,
+    avgLuminance: Math.round((avg * LUMINANCE_CALIBRATION_FACTOR) * 10) / 10,
+    maxLuminance: Math.round((max * LUMINANCE_CALIBRATION_FACTOR) * 10) / 10,
+    minLuminance: Math.round((min * LUMINANCE_CALIBRATION_FACTOR) * 10) / 10,
+    luminanceStd: Math.round((std * LUMINANCE_CALIBRATION_FACTOR) * 10) / 10,
     qualityScore,
     qualityIssues,
     isValid: qualityScore >= 40,
@@ -326,9 +330,9 @@ export function analyzeROI(
   }
   
   return {
-    avgLuminance: Math.round((sum / count) * 100) / 100,
-    maxLuminance: Math.round(max * 100) / 100,
-    minLuminance: Math.round(min * 100) / 100,
+    avgLuminance: Math.round(((sum / count) * LUMINANCE_CALIBRATION_FACTOR) * 10) / 10,
+    maxLuminance: Math.round((max * LUMINANCE_CALIBRATION_FACTOR) * 10) / 10,
+    minLuminance: Math.round((min * LUMINANCE_CALIBRATION_FACTOR) * 10) / 10,
     pixelCount: count,
   };
 }

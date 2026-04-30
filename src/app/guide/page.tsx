@@ -35,9 +35,14 @@ export default function GuidePage() {
             <div key={zone.id} className={`card ${styles.zoneCard}`}>
               <div className={styles.zoneHeader}>
                 <span className={`badge badge-accent`}>{zone.name}</span>
-                <span className={styles.zoneLimit}>
-                  최대 <strong>{zone.maxIlluminance} lx</strong>
-                </span>
+                <div className="flex flex-col items-end gap-1">
+                  <span className={styles.zoneLimit}>
+                    발광체(간판) <strong>{zone.maxLuminance} cd/m²</strong>
+                  </span>
+                  <span className="text-xs text-secondary">
+                    창문 침입광 <strong>{zone.maxIlluminance} lx</strong>
+                  </span>
+                </div>
               </div>
               <p className={styles.zoneDesc}>{zone.description}</p>
               <div className={styles.zoneExamples}>
