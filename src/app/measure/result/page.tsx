@@ -6,7 +6,7 @@ import { Camera, Thermometer, Lightbulb, Save, ClipboardList, CheckCircle2, Aler
 import styles from './page.module.css';
 import type { AnalysisResult } from '@/lib/analysis/luminance';
 import type { ExifData } from '@/lib/camera/exif';
-import { LIGHT_TYPES, PURPOSE_TAGS, LEGAL_DISCLAIMER } from '@/lib/standards/criteria';
+import { LIGHT_TYPES, PURPOSE_TAGS, LEGAL_DISCLAIMER, ZONE_STANDARDS } from '@/lib/standards/criteria';
 
 interface MeasurementData {
   result: AnalysisResult;
@@ -208,6 +208,32 @@ export default function ResultPage() {
             </div>
             <span className="text-mono text-sm">{result.underexposedPct.toFixed(1)}%</span>
           </div>
+        </div>
+      </div>
+
+      {/* Standards Evaluation */}
+      <div className={styles.standardsSection}>
+        <h3 className="section-title">환경부 조명환경관리구역 기준 평가</h3>
+        <p className="text-xs text-secondary mb-md">
+          가장 밝은 영역(최대 밝기: {result.maxLuminance.toFixed(1)} cd/m²)을 광고조명(발광표면) 법적 허용 기준과 비교합니다.
+        </p>
+        <div className={styles.standardsList}>
+          {ZONE_STANDARDS.map(zone => {
+            const isExceeded = result.maxLuminance > zone.maxLuminance;
+            return (
+              <div key={zone.id} className={`card ${styles.standardCard} ${isExceeded ? styles.standardExceeded : styles.standardSafe}`}>
+                <div className="flex justify-between items-center w-full">
+                  <div>
+                    <span className="font-semibold text-sm">{zone.name}</span>
+                    <span className="text-xs text-secondary ml-2">기준 {zone.maxLuminance} cd/m²</span>
+                  </div>
+                  <span className={`badge ${isExceeded ? 'badge-danger' : 'badge-success'}`}>
+                    {isExceeded ? '기준 초과' : '안전(적합)'}
+                  </span>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
 

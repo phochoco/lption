@@ -239,6 +239,37 @@
   transition: width var(--transition-slow);
 }
 
+/* ── Standards Evaluation ── */
+.standardsSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.standardsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.standardCard {
+  padding: 12px var(--space-md);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  border-left: 4px solid transparent;
+}
+
+.standardExceeded {
+  border-left-color: var(--color-danger);
+  background: var(--color-danger-bg);
+}
+
+.standardSafe {
+  border-left-color: var(--color-success);
+  background: var(--color-success-bg);
+}
+
 /* ── Metadata ── */
 .metaSection {
   display: flex;
