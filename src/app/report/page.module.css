@@ -1,0 +1,59 @@
+.report {
+  padding-top: var(--space-md);
+}
+
+.title {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-xs);
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  margin-bottom: var(--space-md);
+  opacity: 0.5;
+}
+
+/* ── Record Selection ── */
+.recordList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.selectCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  text-align: left;
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  width: 100%;
+  border: 2px solid transparent;
+}
+
+.selectCardActive {
+  border-color: var(--color-accent) !important;
+  background: var(--color-accent-subtle) !important;
+}
+
+.selectCheck {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.selectInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}

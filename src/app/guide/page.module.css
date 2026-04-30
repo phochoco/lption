@@ -1,0 +1,184 @@
+.guide {
+  padding-top: var(--space-md);
+}
+
+.title {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-xs);
+}
+
+.section {
+  margin-bottom: var(--space-2xl);
+}
+
+.sectionTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* ── Info Card ── */
+.infoCard p {
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+/* ── Zones ── */
+.zoneList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.zoneCard {
+  padding: var(--space-md);
+}
+
+.zoneHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.zoneLimit {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.zoneLimit strong {
+  color: var(--color-accent-light);
+  font-family: var(--font-mono);
+}
+
+.zoneDesc {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+.zoneExamples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.zoneExample {
+  font-size: 0.6875rem;
+  padding: 2px 8px;
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-full);
+  color: var(--color-text-tertiary);
+}
+
+/* ── Light Types ── */
+.typeList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+}
+
+.typeCard {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+}
+
+.typeIcon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.typeCard strong {
+  font-size: 0.8125rem;
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* ── Shooting Guide Steps ── */
+.guideSteps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.guideStep {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-md);
+}
+
+.guideStepNum {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-primary);
+  color: white;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.guideStep strong {
+  display: block;
+  font-size: 0.9375rem;
+  margin-bottom: var(--space-sm);
+}
+
+.guideList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.guideList li {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  padding-left: 16px;
+  position: relative;
+}
+
+.guideList li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+/* ── Result Guide ── */
+.resultGuide {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.resultItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.resultLabel {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.resultItem p {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+/* ── CTA ── */
+.cta {
+  padding-bottom: var(--space-xl);
+}
