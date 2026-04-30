@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: '스마트폰으로 빛공해를 측정·기록·비교·리포트하는 플랫폼',
     start_url: '/',
     display: 'standalone',
-    background_color: '#0a0e1a',
-    theme_color: '#0a0e1a',
+    background_color: '#f9fafb',
+    theme_color: '#ffffff',
     orientation: 'portrait',
     categories: ['utilities', 'environment'],
     icons: [
