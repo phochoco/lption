@@ -166,6 +166,60 @@
   border-radius: var(--radius-full);
 }
 
+/* ── FAQ ── */
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.faqItem {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.faqItem[open] .faqQuestion {
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-primary);
+}
+
+.faqQuestion {
+  padding: var(--space-md);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  transition: color var(--transition-fast);
+  padding-right: 2rem;
+}
+
+.faqQuestion::-webkit-details-marker {
+  display: none;
+}
+
+.faqQuestion::after {
+  content: '+';
+  position: absolute;
+  right: var(--space-md);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: var(--color-secondary);
+}
+
+.faqItem[open] .faqQuestion::after {
+  content: '−';
+}
+
+.faqAnswer {
+  padding: var(--space-md);
+  font-size: 0.95rem;
+  color: var(--color-secondary);
+  line-height: 1.6;
+}
+
 .stepContent h3 {
   font-size: 0.9375rem;
   font-weight: 600;
